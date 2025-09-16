@@ -7,20 +7,16 @@ import { TestimonialsSection } from './TestimonialsSection';
 import { BlogPreviewSection } from './BlogPreviewSection';
 import { NewsletterSection } from './NewsletterSection';
 
-interface HomePageProps {
-  setCurrentPage: (page: string) => void;
-}
-
-export function HomePage({ setCurrentPage }: HomePageProps) {
+export function HomePage() {
   return (
     <div>
-      <HeroSection setCurrentPage={setCurrentPage} />
+      <HeroSection />
       <StatisticsSection />
       <ServicesSection />
       <CaseStudiesSection />
       <ProcessSection />
       <TestimonialsSection />
-      <BlogPreviewSection setCurrentPage={setCurrentPage} />
+      <BlogPreviewSection />
       <NewsletterSection />
     </div>
   );

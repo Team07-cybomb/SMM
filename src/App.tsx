@@ -1,42 +1,33 @@
-import { useState } from 'react';
-import { Navigation } from './components/Navigation';
-import { HomePage } from './components/HomePage';
-import { AboutPage } from './components/AboutPage';
-import { PricingPage } from './components/PricingPage';
-import { ContactPage } from './components/ContactPage';
-import { Footer } from './components/Footer';
+import { Routes, Route } from "react-router-dom";
+import { Navigation } from "./components/Navigation";
+import { HomePage } from "./components/HomePage";
+import { AboutPage } from "./components/AboutPage";
+import { PricingPage } from "./components/PricingPage";
+import { ContactPage } from "./components/ContactPage";
+import { Footer } from "./components/Footer";
 
 export default function App() {
-  const [currentPage, setCurrentPage] = useState('home');
-
-  const renderPage = () => {
-    switch (currentPage) {
-      case 'home':
-        return <HomePage setCurrentPage={setCurrentPage} />;
-      case 'about':
-        return <AboutPage />;
-      case 'services':
-        return <HomePage setCurrentPage={setCurrentPage} />; // Services are on home page
-      case 'case-studies':
-        return <HomePage setCurrentPage={setCurrentPage} />; // Case studies are on home page
-      case 'pricing':
-        return <PricingPage setCurrentPage={setCurrentPage} />;
-      case 'blog':
-        return <ContactPage />; // Blog page redirects to contact for now
-      case 'contact':
-        return <ContactPage />;
-      default:
-        return <HomePage setCurrentPage={setCurrentPage} />;
-    }
-  };
-
   return (
     <div className="min-h-screen bg-background">
-      <Navigation currentPage={currentPage} setCurrentPage={setCurrentPage} />
+      {/* Navigation bar */}
+      <Navigation />
+
+      {/* Page Routes */}
       <main>
-        {renderPage()}
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/services" element={<HomePage />} /> {/* Services on Home */}
+          <Route path="/case-studies" element={<HomePage />} /> {/* Case studies on Home */}
+          <Route path="/pricing" element={<PricingPage />} />
+          <Route path="/blog" element={<ContactPage />} /> {/* Blog redirects to Contact */}
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="*" element={<HomePage />} /> {/* Default fallback */}
+        </Routes>
       </main>
-      <Footer setCurrentPage={setCurrentPage} />
+
+      {/* Footer */}
+      <Footer />
     </div>
   );
 }

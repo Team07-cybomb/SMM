@@ -5,13 +5,12 @@ import { Button } from './ui/button';
 import { Switch } from './ui/switch';
 import { Badge } from './ui/badge';
 import { Check, X, Star, Calculator, HelpCircle } from 'lucide-react';
+import { useNavigate } from "react-router-dom";
 
-interface PricingPageProps {
-  setCurrentPage: (page: string) => void;
-}
 
-export function PricingPage({ setCurrentPage }: PricingPageProps) {
+export function PricingPage() {
   const [isAnnual, setIsAnnual] = useState(false);
+  const navigate = useNavigate();
 
   const plans = [
     {
@@ -252,7 +251,7 @@ export function PricingPage({ setCurrentPage }: PricingPageProps) {
                           ? 'bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600' 
                           : 'bg-primary hover:bg-primary/90'
                       }`}
-                      onClick={() => setCurrentPage('contact')}
+                      onClick={() => navigate('/contact')}
                     >
                       Get Started
                     </Button>
@@ -279,7 +278,7 @@ export function PricingPage({ setCurrentPage }: PricingPageProps) {
                 <Button 
                   variant="outline" 
                   size="lg"
-                  onClick={() => setCurrentPage('contact')}
+                  onClick={() => navigate('/contact')}
                 >
                   Contact Sales
                 </Button>

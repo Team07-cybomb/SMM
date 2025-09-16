@@ -1,40 +1,46 @@
-import { motion } from 'motion/react';
-import { Button } from './ui/button';
-import { Input } from './ui/input';
-import { Facebook, Twitter, Linkedin, Instagram, Youtube, ArrowUp } from 'lucide-react';
+import { motion } from "motion/react";
+import { Button } from "./ui/button";
+import { Input } from "./ui/input";
+import {
+  Facebook,
+  Twitter,
+  Linkedin,
+  Instagram,
+  Youtube,
+  ArrowUp,
+} from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
 
-interface FooterProps {
-  setCurrentPage: (page: string) => void;
-}
+export function Footer() {
+  const navigate = useNavigate();
 
-export function Footer({ setCurrentPage }: FooterProps) {
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const footerLinks = {
     quickLinks: [
-      { name: 'Home', value: 'home' },
-      { name: 'About Us', value: 'about' },
-      { name: 'Services', value: 'services' },
-      { name: 'Pricing', value: 'pricing' },
-      { name: 'Contact', value: 'contact' }
+      { name: "Home", value: "/" },
+      { name: "About Us", value: "/about" },
+      { name: "Services", value: "/services" },
+      { name: "Pricing", value: "/pricing" },
+      { name: "Contact", value: "/contact" },
     ],
     resources: [
-      { name: 'Blog', value: 'blog' },
-      { name: 'Case Studies', value: 'case-studies' },
-      { name: 'Free Guides', value: 'guides' },
-      { name: 'Webinars', value: 'webinars' },
-      { name: 'Templates', value: 'templates' }
-    ]
+      { name: "Blog", value: "/blog" },
+      { name: "Case Studies", value: "/case-studies" },
+      { name: "Free Guides", value: "/guides" },
+      { name: "Webinars", value: "/webinars" },
+      { name: "Templates", value: "/templates" },
+    ],
   };
 
   const socialLinks = [
-    { icon: <Facebook className="w-5 h-5" />, name: 'Facebook', url: '#' },
-    { icon: <Twitter className="w-5 h-5" />, name: 'Twitter', url: '#' },
-    { icon: <Linkedin className="w-5 h-5" />, name: 'LinkedIn', url: '#' },
-    { icon: <Instagram className="w-5 h-5" />, name: 'Instagram', url: '#' },
-    { icon: <Youtube className="w-5 h-5" />, name: 'YouTube', url: '#' }
+    { icon: <Facebook className="w-5 h-5" />, name: "Facebook", url: "#" },
+    { icon: <Twitter className="w-5 h-5" />, name: "Twitter", url: "#" },
+    { icon: <Linkedin className="w-5 h-5" />, name: "LinkedIn", url: "#" },
+    { icon: <Instagram className="w-5 h-5" />, name: "Instagram", url: "#" },
+    { icon: <Youtube className="w-5 h-5" />, name: "YouTube", url: "#" },
   ];
 
   return (
@@ -57,15 +63,16 @@ export function Footer({ setCurrentPage }: FooterProps) {
                 transition={{ duration: 0.6 }}
                 viewport={{ once: true }}
               >
-                <div 
+                <div
                   className="text-3xl mb-4 cursor-pointer hover:text-blue-400 transition-colors"
-                  onClick={() => setCurrentPage('home')}
+                  onClick={() => navigate("/")}
                 >
                   SMM
                 </div>
                 <p className="text-gray-300 mb-6 max-w-md leading-relaxed">
-                  We help brands maximize their digital impact through proven social media marketing strategies. 
-                  Join 500+ successful brands worldwide.
+                  We help brands maximize their digital impact through proven
+                  social media marketing strategies. Join 500+ successful brands
+                  worldwide.
                 </p>
                 <div className="flex space-x-4">
                   {socialLinks.map((social, index) => (
@@ -95,12 +102,12 @@ export function Footer({ setCurrentPage }: FooterProps) {
                 <ul className="space-y-3">
                   {footerLinks.quickLinks.map((link, index) => (
                     <li key={index}>
-                      <button
-                        onClick={() => setCurrentPage(link.value)}
-                        className="text-gray-300 hover:text-white transition-colors duration-200 text-left"
+                      <Link
+                        to={link.value}
+                        className="text-gray-300 hover:text-white transition-colors duration-200"
                       >
                         {link.name}
-                      </button>
+                      </Link>
                     </li>
                   ))}
                 </ul>
@@ -119,12 +126,12 @@ export function Footer({ setCurrentPage }: FooterProps) {
                 <ul className="space-y-3">
                   {footerLinks.resources.map((link, index) => (
                     <li key={index}>
-                      <button
-                        onClick={() => setCurrentPage(link.value)}
-                        className="text-gray-300 hover:text-white transition-colors duration-200 text-left"
+                      <Link
+                        to={link.value}
+                        className="text-gray-300 hover:text-white transition-colors duration-200"
                       >
                         {link.name}
-                      </button>
+                      </Link>
                     </li>
                   ))}
                 </ul>
@@ -143,9 +150,13 @@ export function Footer({ setCurrentPage }: FooterProps) {
                 <div className="space-y-3 text-gray-300">
                   <p>hello@smm.com</p>
                   <p>+1 (555) 123-4567</p>
-                  <p>123 Marketing Street<br />San Francisco, CA 94102</p>
+                  <p>
+                    123 Marketing Street
+                    <br />
+                    San Francisco, CA 94102
+                  </p>
                 </div>
-                
+
                 {/* Newsletter Signup */}
                 <div className="mt-6">
                   <h4 className="text-sm mb-3">Newsletter</h4>
@@ -155,7 +166,10 @@ export function Footer({ setCurrentPage }: FooterProps) {
                       placeholder="Your email"
                       className="bg-gray-800 border-gray-700 text-white placeholder-gray-400 text-sm"
                     />
-                    <Button size="sm" className="bg-blue-600 hover:bg-blue-700 shrink-0">
+                    <Button
+                      size="sm"
+                      className="bg-blue-600 hover:bg-blue-700 shrink-0"
+                    >
                       Subscribe
                     </Button>
                   </div>
@@ -172,17 +186,21 @@ export function Footer({ setCurrentPage }: FooterProps) {
               <div className="text-gray-400 text-sm">
                 © 2025 SMM. All rights reserved.
               </div>
-              
+
               <div className="flex items-center gap-6 text-sm text-gray-400">
-                <button className="hover:text-white transition-colors">Terms of Service</button>
-                <button className="hover:text-white transition-colors">Privacy Policy</button>
+                <Link to="/terms" className="hover:text-white transition-colors">
+                  Terms of Service
+                </Link>
+                <Link to="/privacy" className="hover:text-white transition-colors">
+                  Privacy Policy
+                </Link>
                 <select className="bg-transparent border-none text-gray-400 hover:text-white transition-colors cursor-pointer">
                   <option value="en">English</option>
                   <option value="es">Español</option>
                   <option value="fr">Français</option>
                 </select>
               </div>
-              
+
               <Button
                 variant="ghost"
                 size="sm"

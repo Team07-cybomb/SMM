@@ -3,12 +3,11 @@ import { Card, CardContent } from './ui/card';
 import { Button } from './ui/button';
 import { Clock, ArrowRight } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
+import { useNavigate } from "react-router-dom";
 
-interface BlogPreviewSectionProps {
-  setCurrentPage: (page: string) => void;
-}
 
-export function BlogPreviewSection({ setCurrentPage }: BlogPreviewSectionProps) {
+export function BlogPreviewSection() {
+  const navigate = useNavigate();
   const blogPosts = [
     {
       id: 1,
@@ -16,7 +15,7 @@ export function BlogPreviewSection({ setCurrentPage }: BlogPreviewSectionProps) 
       excerpt: 'Discover creative video content strategies that boost your Instagram engagement rates.',
       category: 'Instagram',
       readTime: '5 min read',
-      image: 'https://images.unsplash.com/photo-1542744094-24638eff58bb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkaWdpdGFsJTIwbWFya2V0aW5nJTIwc3RyYXRlZ3klMjBncmFwaHN8ZW58MXx8fHwxNzU4MDAwOTUxfDA&ixlib=rb-4.1.0&q=80&w=1080',
+      image: 'src/assets/blog1.png',
       date: 'Jan 15, 2025'
     },
     {
@@ -25,7 +24,7 @@ export function BlogPreviewSection({ setCurrentPage }: BlogPreviewSectionProps) 
       excerpt: 'Stay ahead of the latest LinkedIn updates and optimize your B2B content strategy.',
       category: 'LinkedIn',
       readTime: '7 min read',
-      image: 'https://images.unsplash.com/photo-1601509876296-aba16d4c10a4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxidXNpbmVzcyUyMHRlYW0lMjBjb2xsYWJvcmF0aW9ufGVufDF8fHx8MTc1NzkyNDQ3N3ww&ixlib=rb-4.1.0&q=80&w=1080',
+      image: 'src/assets/blog2.png',
       date: 'Jan 12, 2025'
     },
     {
@@ -34,7 +33,7 @@ export function BlogPreviewSection({ setCurrentPage }: BlogPreviewSectionProps) 
       excerpt: 'Explore emerging trends and technologies shaping the social media landscape.',
       category: 'Trends',
       readTime: '6 min read',
-      image: 'https://images.unsplash.com/photo-1743004873139-5bc0e3d937d4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHxtb2Rlcm4lMjBvZmZpY2UlMjB3b3Jrc3BhY2UlMjB0ZWNobm9sb2d5fGVufDF8fHx8MTc1Nzk1MzIzMnww&ixlib=rb-4.1.0&q=80&w=1080',
+      image: 'src/assets/blog3.png',
       date: 'Jan 10, 2025'
     }
   ];
@@ -130,7 +129,7 @@ export function BlogPreviewSection({ setCurrentPage }: BlogPreviewSectionProps) 
           <Button
             variant="outline"
             size="lg"
-            onClick={() => setCurrentPage('blog')}
+            onClick={() => navigate('/blog')}
             className="hover:bg-primary hover:text-primary-foreground group"
           >
             View All Posts
