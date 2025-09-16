@@ -1,39 +1,39 @@
 import { motion } from 'motion/react';
+import { Icon } from '@iconify/react';
 import { Card, CardContent } from './ui/card';
-import { Instagram, Facebook, Twitter, Linkedin, Youtube } from 'lucide-react';
 
 export function ServicesSection() {
   const services = [
     {
-      icon: <Instagram className="w-12 h-12" />,
+      icon: <Icon icon="mdi:instagram" className="w-12 h-12" />,
       title: 'Instagram Marketing',
       description: 'Build engagement with reels, stories & ads that convert your audience into loyal customers.',
       color: 'from-pink-500 to-purple-600',
       bgColor: 'from-pink-50 to-purple-50',
     },
     {
-      icon: <Facebook className="w-12 h-12" />,
+      icon: <Icon icon="mdi:facebook" className="w-12 h-12" />,
       title: 'Facebook Marketing',
       description: 'Drive conversions with targeted campaigns that reach your ideal customers at the right time.',
       color: 'from-blue-500 to-blue-700',
       bgColor: 'from-blue-50 to-blue-100',
     },
     {
-      icon: <Twitter className="w-12 h-12" />,
+      icon: <Icon icon="simple-icons:x" className="w-12 h-12" />,
       title: 'Twitter/X Marketing',
       description: 'Create trends & build conversations that establish your brand as a thought leader.',
       color: 'from-gray-700 to-gray-900',
       bgColor: 'from-gray-50 to-gray-100',
     },
     {
-      icon: <Linkedin className="w-12 h-12" />,
+      icon: <Icon icon="mdi:linkedin" className="w-12 h-12" />,
       title: 'LinkedIn Marketing',
       description: 'Generate B2B leads & establish authority in your industry with professional content.',
       color: 'from-blue-600 to-blue-800',
       bgColor: 'from-blue-50 to-blue-100',
     },
     {
-      icon: <Youtube className="w-12 h-12" />,
+      icon: <Icon icon="mdi:youtube" className="w-12 h-12" />,
       title: 'YouTube Marketing',
       description: 'Grow with video ads, SEO & content strategy that builds a loyal subscriber base.',
       color: 'from-red-500 to-red-700',
@@ -70,20 +70,22 @@ export function ServicesSection() {
             >
               <Card className="h-full border-0 shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden">
                 <CardContent className="p-6 h-full flex flex-col">
-                  <div className={`w-16 h-16 rounded-2xl bg-gradient-to-r ${service.bgColor} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                  <div
+                    className={`w-16 h-16 rounded-2xl bg-gradient-to-r ${service.bgColor} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}
+                  >
                     <div className={`text-white bg-gradient-to-r ${service.color} rounded-xl p-2`}>
                       {service.icon}
                     </div>
                   </div>
-                  
+
                   <h3 className="text-xl mb-4 group-hover:text-primary transition-colors duration-300">
                     {service.title}
                   </h3>
-                  
+
                   <p className="text-muted-foreground leading-relaxed flex-grow">
                     {service.description}
                   </p>
-                  
+
                   <motion.div
                     initial={{ width: 0 }}
                     whileInView={{ width: '100%' }}

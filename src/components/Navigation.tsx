@@ -1,33 +1,28 @@
-import { useState, useEffect } from 'react';
-import { Button } from './ui/button';
-import { Menu, X } from 'lucide-react';
-import { motion } from 'motion/react';
+import { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { Button } from "./ui/button";
+import { Menu, X } from "lucide-react";
+import { motion } from "motion/react";
 
-interface NavigationProps {
-  currentPage: string;
-  setCurrentPage: (page: string) => void;
-}
-
-export function Navigation({ currentPage, setCurrentPage }: NavigationProps) {
+export function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-
+  const location = useLocation();
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
     };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const navItems = [
-    
-    { name: 'About Us', value: 'about' },
-    { name: 'Services', value: 'services' },
-   
-    { name: 'Pricing', value: 'pricing' },
-    { name: 'Blog', value: 'blog' },
-    { name: 'Contact', value: 'contact' },
+    { name: "About Us", value: "/about" },
+    { name: "Services", value: "/services" },
+    { name: "Pricing", value: "/pricing" },
   ];
 
   return (
@@ -35,49 +30,45 @@ export function Navigation({ currentPage, setCurrentPage }: NavigationProps) {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-         'bg-white/90 backdrop-blur-md shadow-lg'
+        "bg-white/90 backdrop-blur-md shadow-lg"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div 
-            className="flex-shrink-0 cursor-pointer"
-            onClick={() => setCurrentPage('home')}
-          >
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              className="text-2xl tracking-tight"
-            >
+          <div className="flex-shrink-0 cursor-pointer">
+            <Link to="/" className="text-2xl tracking-tight">
               SMM
-            </motion.div>
+            </Link>
           </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-8">
               {navItems.map((item) => (
-                <button
+                <Link
                   key={item.value}
-                  onClick={() => setCurrentPage(item.value)}
+                  to={item.value}
                   className={`px-3 py-2 transition-colors duration-200 hover:text-primary ${
-                    currentPage === item.value ? 'text-primary' : 'text-foreground/70'
+                    location.pathname === item.value
+                      ? "text-primary"
+                      : "text-foreground/70"
                   }`}
                 >
                   {item.name}
-                </button>
+                </Link>
               ))}
             </div>
           </div>
 
           {/* CTA Button */}
           <div className="hidden md:block">
-            <Button
-              onClick={() => setCurrentPage('contact')}
-              className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700"
-            >
-              Get Started
-            </Button>
+            <Link to="/contact">
+              <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700" onClick={scrollToTop}>
+                
+                Get Started
+              </Button>
+            </Link>
           </div>
 
           {/* Mobile menu button */}
@@ -101,30 +92,24 @@ export function Navigation({ currentPage, setCurrentPage }: NavigationProps) {
           >
             <div className="space-y-2">
               {navItems.map((item) => (
-                <button
+                <Link
                   key={item.value}
-                  onClick={() => {
-                    setCurrentPage(item.value);
-                    setIsOpen(false);
-                  }}
+                  to={item.value}
+                  onClick={() => setIsOpen(false)}
                   className={`block w-full text-left px-3 py-2 rounded-md transition-colors duration-200 ${
-                    currentPage === item.value
-                      ? 'bg-primary text-primary-foreground'
-                      : 'text-foreground/70 hover:bg-accent'
+                    location.pathname === item.value
+                      ? "bg-primary text-primary-foreground"
+                      : "text-foreground/70 hover:bg-accent"
                   }`}
                 >
                   {item.name}
-                </button>
+                </Link>
               ))}
-              <Button
-                onClick={() => {
-                  setCurrentPage('contact');
-                  setIsOpen(false);
-                }}
-                className="w-full mt-4 bg-gradient-to-r from-blue-600 to-purple-600"
-              >
-                Get Started
-              </Button>
+              <Link to="/contact" onClick={() => setIsOpen(false)}>
+                <Button className="w-full mt-4 bg-gradient-to-r from-blue-600 to-purple-600">
+                  Get Started
+                </Button>
+              </Link>
             </div>
           </motion.div>
         )}
