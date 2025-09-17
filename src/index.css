@@ -4347,7 +4347,7 @@
   }
 
   .data-\[state\=checked\]\:bg-primary[data-state="checked"] {
-    background-color: var(--primary);
+    background-color: var(--color-green-600);
   }
 
   .data-\[state\=checked\]\:text-primary-foreground[data-state="checked"] {
@@ -4534,7 +4534,7 @@
   }
 
   .data-\[state\=unchecked\]\:bg-switch-background[data-state="unchecked"] {
-    background-color: var(--switch-background);
+    background-color: var(--color-blue-600);
   }
 
   .data-\[state\=visible\]\:animate-in[data-state="visible"] {
