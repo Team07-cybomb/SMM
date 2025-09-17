@@ -71,20 +71,20 @@ export function AboutPage() {
   return (
     <div className="pt-16">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h1 className="text-5xl md:text-7xl mb-6">About SMM</h1>
-            <p className="text-xl md:text-2xl text-blue-100 max-w-4xl mx-auto leading-relaxed">
-              We're passionate about helping brands unlock their full potential through strategic social media marketing.
-            </p>
-          </motion.div>
-        </div>
-      </section>
+      <section className="py-20 bg-gradient-to-r from-gray-900 via-blue-900 to-purple-900 text-white">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <motion.div
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+    >
+      <h1 className="text-5xl md:text-7xl mb-6">About SMM</h1>
+      <p className="text-xl md:text-2xl text-blue-100 max-w-4xl mx-auto leading-relaxed">
+        We're passionate about helping brands unlock their full potential through strategic social media marketing.
+      </p>
+    </motion.div>
+  </div>
+</section>
 
       {/* Mission & Vision */}
       <section className="py-20">
@@ -194,7 +194,7 @@ export function AboutPage() {
                 viewport={{ once: true }}
                 whileHover={{ y: -5 }}
               >
-                <Card className="text-center shadow-lg hover:shadow-2xl transition-all duration-300">
+                <Card className="flex flex-col h-full text-center shadow-lg hover:shadow-2xl transition-all duration-300">
                   <CardContent className="p-6">
                     <div className="w-20 h-20 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center text-white text-xl mx-auto mb-4">
                       {member.avatar}

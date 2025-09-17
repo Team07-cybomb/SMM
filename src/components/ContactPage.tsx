@@ -40,19 +40,19 @@ export function ContactPage() {
     {
       icon: <Mail className="w-6 h-6" />,
       title: 'Email Us',
-      content: 'hello@smm.com',
+      content: 'support@smm.com',
       description: 'Send us an email anytime'
     },
     {
       icon: <Phone className="w-6 h-6" />,
       title: 'Call Us',
-      content: '+1 (555) 123-4567',
+      content: '+91 9453373597',
       description: 'Mon-Fri from 9am to 6pm PST'
     },
     {
       icon: <MapPin className="w-6 h-6" />,
       title: 'Visit Us',
-      content: '123 Marketing Street, San Francisco, CA 94102',
+      content: 'Sripuram Colony, Viralur,St.Thomas Mount, Chennai, Tamil Nadu 94102',
       description: 'Our headquarters in the heart of SF'
     },
     {
@@ -74,20 +74,20 @@ export function ContactPage() {
   return (
     <div className="pt-16">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h1 className="text-5xl md:text-7xl mb-6">Let's Grow Together</h1>
-            <p className="text-xl md:text-2xl text-blue-100 max-w-4xl mx-auto leading-relaxed">
-              Ready to transform your social media presence? Get in touch and let's discuss your goals.
-            </p>
-          </motion.div>
-        </div>
-      </section>
+      <section className="py-20 bg-gradient-to-r from-gray-900 via-blue-900 to-purple-900 text-white">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <motion.div
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+    >
+      <h1 className="text-5xl md:text-7xl mb-6">Let's Grow Together</h1>
+      <p className="text-xl md:text-2xl text-blue-100 max-w-4xl mx-auto leading-relaxed">
+        Ready to transform your social media presence? Get in touch and let's discuss your goals.
+      </p>
+    </motion.div>
+  </div>
+</section>
 
       {/* Contact Form and Info */}
       <section className="py-20">
@@ -261,29 +261,7 @@ export function ContactPage() {
                 transition={{ duration: 0.6, delay: 0.4 }}
                 viewport={{ once: true }}
               >
-                <Card className="shadow-lg">
-                  <CardContent className="p-6">
-                    <h3 className="text-xl mb-4">Follow us on social</h3>
-                    <p className="text-muted-foreground mb-6">
-                      Stay updated with our latest insights and success stories
-                    </p>
-                    <div className="space-y-3">
-                      {socialLinks.map((social, index) => (
-                        <div key={index} className="flex items-center justify-between p-3 hover:bg-gray-50 rounded-lg transition-colors">
-                          <div className="flex items-center gap-3">
-                            <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center text-white">
-                              {social.icon}
-                            </div>
-                            <span className="text-sm">{social.name}</span>
-                          </div>
-                          <Badge variant="outline" className="text-xs">
-                            {social.handle}
-                          </Badge>
-                        </div>
-                      ))}
-                    </div>
-                  </CardContent>
-                </Card>
+                
               </motion.div>
             </motion.div>
           </div>
@@ -291,7 +269,7 @@ export function ContactPage() {
       </section>
 
       {/* Map Section */}
-      <section className="py-20 bg-gray-50">
+      {/* <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -323,7 +301,7 @@ export function ContactPage() {
             </Card>
           </motion.div>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 }
