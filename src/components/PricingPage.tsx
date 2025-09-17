@@ -104,22 +104,21 @@ export function PricingPage() {
   return (
     <div className="pt-16">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h1 className="text-5xl md:text-7xl mb-6">Simple, Transparent Pricing</h1>
-            <p className="text-xl md:text-2xl text-blue-100 max-w-4xl mx-auto leading-relaxed">
-              Choose the plan that fits your business needs. All plans include our proven methodology and dedicated support.
-            </p>
-          </motion.div>
-        </div>
-      </section>
+      <section className="py-20 bg-gradient-to-r from-gray-900 via-blue-900 to-purple-900 text-white">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <motion.div
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+    >
+      <h1 className="text-5xl md:text-7xl mb-6">Simple, Transparent Pricing</h1>
+      <p className="text-xl md:text-2xl text-blue-100 max-w-4xl mx-auto leading-relaxed">
+      Choose the plan that fits your business needs. All plans include our proven methodology and dedicated support.      </p>
+    </motion.div>
+  </div>
+</section>
 
-      {/* ROI Calculator Preview */}
+      {/* ROI Calculator Preview
       <section className="py-16 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
@@ -156,7 +155,7 @@ export function PricingPage() {
             </Card>
           </motion.div>
         </div>
-      </section>
+      </section> */}
 
       {/* Pricing Toggle */}
       <section className="py-20">
@@ -168,7 +167,7 @@ export function PricingPage() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <div className="flex items-center justify-center gap-4 mb-8">
+            <div className="flex items-center justify-center gap-4 mb-16">
               <span className={`transition-colors ${!isAnnual ? 'text-primary' : 'text-muted-foreground'}`}>
                 Monthly
               </span>
@@ -188,78 +187,83 @@ export function PricingPage() {
 
           {/* Pricing Cards */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {plans.map((plan, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className={`relative ${plan.popular ? 'scale-105' : ''}`}
-              >
-                {plan.popular && (
-                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                    <Badge className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-4 py-1">
-                      <Star className="w-3 h-3 mr-1" />
-                      Most Popular
-                    </Badge>
-                  </div>
-                )}
-                
-                <Card className={`h-full border-0 shadow-xl hover:shadow-2xl transition-all duration-300 ${
-                  plan.popular ? 'ring-2 ring-purple-500 ring-opacity-50' : ''
-                }`}>
-                  <CardHeader className="text-center pb-4">
-                    <div className={`w-16 h-16 rounded-full bg-gradient-to-r ${plan.color} flex items-center justify-center mx-auto mb-4`}>
-                      <div className="w-8 h-8 bg-white rounded-full" />
-                    </div>
-                    <h3 className="text-2xl mb-2">{plan.name}</h3>
-                    <p className="text-muted-foreground text-sm">{plan.description}</p>
-                  </CardHeader>
-                  
-                  <CardContent className="pt-0">
-                    <div className="text-center mb-6">
-                      <div className="text-4xl mb-2">
-                        ${isAnnual ? plan.annualPrice : plan.monthlyPrice}
-                        <span className="text-lg text-muted-foreground">/month</span>
-                      </div>
-                      {isAnnual && (
-                        <div className="text-sm text-green-600">
-                          Save ${(plan.monthlyPrice - plan.annualPrice) * 12}/year
-                        </div>
-                      )}
-                    </div>
-                    
-                    <ul className="space-y-3 mb-8">
-                      {plan.features.map((feature, featureIndex) => (
-                        <li key={featureIndex} className="flex items-center gap-3">
-                          <Check className="w-5 h-5 text-green-500 shrink-0" />
-                          <span className="text-sm">{feature}</span>
-                        </li>
-                      ))}
-                      {plan.notIncluded.map((feature, featureIndex) => (
-                        <li key={featureIndex} className="flex items-center gap-3">
-                          <X className="w-5 h-5 text-gray-300 shrink-0" />
-                          <span className="text-sm text-muted-foreground">{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-                    
-                    <Button
-                      className={`w-full ${
-                        plan.popular 
-                          ? 'bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600' 
-                          : 'bg-primary hover:bg-primary/90'
-                      }`}
-                      onClick={() => navigate('/contact')}
-                    >
-                      Get Started
-                    </Button>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
+  {plans.map((plan, index) => (
+    <motion.div
+      key={index}
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, delay: index * 0.1 }}
+      viewport={{ once: true }}
+      className={`relative ${plan.popular ? 'scale-105' : ''}`}
+    >
+      {plan.popular && (
+        <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 ">
+          <Badge className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-4 py-1">
+            <Star className="w-3 h-3 mr-1" />
+            Most Popular
+          </Badge>
+        </div>
+      )}
+     <Card
+  className={`h-full border-2 shadow-xl hover:shadow-2xl transition-all duration-300 flex flex-col ${
+    plan.popular ? 'ring-2 ring-purple-500 ring-opacity-50' : ''
+  }`}
+>
+  <CardHeader className="text-center pb-4">
+    <div
+      className={`w-16 h-16 rounded-full bg-gradient-to-r ${plan.color} flex items-center justify-center mx-auto mb-4`}
+    >
+      <div className="w-8 h-8 bg-white rounded-full" />
+    </div>
+    <h3 className="text-2xl mb-2">{plan.name}</h3>
+    <p className="text-muted-foreground text-sm">{plan.description}</p>
+  </CardHeader>
+
+  <CardContent className="pt-0 flex flex-col flex-1 pb-4">
+    <div className="text-center mb-6">
+      <div className="text-4xl mb-2">
+        ${isAnnual ? plan.annualPrice : plan.monthlyPrice}
+        <span className="text-lg text-muted-foreground">/month</span>
+      </div>
+      {isAnnual && (
+        <div className="text-sm text-green-600">
+          Save ${(plan.monthlyPrice - plan.annualPrice) * 12}/year
+        </div>
+      )}
+    </div>
+
+    <ul className="space-y-3 flex-1">
+      {plan.features.map((feature, featureIndex) => (
+        <li key={featureIndex} className="flex items-center gap-3">
+          <Check className="w-5 h-5 text-green-500 shrink-0" />
+          <span className="text-sm">{feature}</span>
+        </li>
+      ))}
+      {plan.notIncluded.map((feature, featureIndex) => (
+        <li key={featureIndex} className="flex items-center gap-3">
+          <X className="w-5 h-5 text-gray-300 shrink-0" />
+          <span className="text-sm text-muted-foreground">{feature}</span>
+        </li>
+      ))}
+    </ul>
+
+    <Button
+      className={`w-full mt-12 ${
+        plan.popular
+          ? 'bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600'
+          : 'bg-primary hover:bg-primary/90'
+      }`}
+      onClick={() => navigate('/contact')}
+    >
+      Get Started
+    </Button>
+  </CardContent>
+</Card>
+
+
+    </motion.div>
+  ))}
+</div>
 
           {/* Custom Plan */}
           <motion.div

@@ -148,12 +148,12 @@ export function Footer() {
               >
                 <h3 className="text-lg mb-6">Contact Info</h3>
                 <div className="space-y-3 text-gray-300">
-                  <p>hello@smm.com</p>
-                  <p>+1 (555) 123-4567</p>
+                  <p>support@smm.com</p>
+                  <p>+91 9453373597</p>
                   <p>
-                    123 Marketing Street
-                    <br />
-                    San Francisco, CA 94102
+                    
+                    
+                    Sripuram Colony, Viralur,<br/> St.Thomas Mount, Chennai, Tamil Nadu 94102
                   </p>
                 </div>
 
