@@ -4,7 +4,7 @@ import { ServicesSection } from './ServicesSection';
 import { CaseStudiesSection } from './CaseStudiesSection';
 import { ProcessSection } from './ProcessSection';
 import { TestimonialsSection } from './TestimonialsSection';
-import { BlogPreviewSection } from './BlogPreviewSection';
+// import { BlogPreviewSection } from './BlogPreviewSection';
 import { NewsletterSection } from './NewsletterSection';
 
 export function HomePage() {
@@ -16,7 +16,7 @@ export function HomePage() {
       <CaseStudiesSection />
       <ProcessSection />
       <TestimonialsSection />
-      <BlogPreviewSection />
+      {/* <BlogPreviewSection /> */}
       <NewsletterSection />
     </div>
   );
