@@ -6,7 +6,7 @@ import { PricingPage } from "./components/PricingPage";
 import { ContactPage } from "./components/ContactPage";
 import { Footer } from "./components/Footer";
 import ServicesPage from "./components/services/service-page";
-
+import "../src/styles/globals.css"
 export default function App() {
   return (
     <div className="min-h-screen bg-background">

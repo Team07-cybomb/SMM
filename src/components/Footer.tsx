@@ -119,9 +119,9 @@ export function Footer() {
                 <p>hello@smm.com</p>
                 <p>+1 (555) 123-4567</p>
                 <p>
-                  123 Marketing Street
+                 Sripuram Colony, Viralur,
                   <br />
-                  San Francisco, CA 94102
+                  St.Thomas Mount, Chennai, Tamil Nadu 94102
                 </p>
               </div>
 
